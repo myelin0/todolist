@@ -1,72 +1,68 @@
 body {
-    background-color: bisque;
+  background-color: bisque;
 }
 
-h1{
-    color:rgb(221, 43, 52);
+h1 {
+  color: rgb(221, 43, 52);
 }
 
-.container{
- width: 60%;
+.container {
+  width: 60%;
   margin: 50px auto;
   background-color: white;
   border-radius: 5px;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
 
-
-.rows{
-    font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
-    position: relative;
-    background-color: #fff;
-    font-size: 1rem;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    font-weight: 300;
-    transition: background-color 200ms linear;
-    box-sizing: content-box;
-    
-    transform: translate3d(0, 0, 0);
-    
-    backface-visibility: hidden;
-    cursor:pointer;
-    list-style: none;
-   
-    width: 94%;
-    padding: 15px 1em;
-    line-height: 20px;
-    word-wrap: break-word;
+.rows {
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  position: relative;
+  background-color: #fff;
+  font-size: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-weight: 300;
+  transition: background-color 200ms linear;
+  box-sizing: content-box;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  cursor: pointer;
+  list-style: none;
+  width: 94%;
+  padding: 15px 1em;
+  line-height: 20px;
+  word-wrap: break-word;
 }
 
-li{
-    display: flex;
-    justify-content: space-between;
+li {
+  display: flex;
+  justify-content: space-between;
 }
 
 .fa-square {
-    padding-right:2rem;
+  padding-right: 2rem;
 }
 
-.clear-completed{
-    opacity: .5;
+.clear-completed {
+  opacity: 0.5;
 }
 
-.caption{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
-    padding:1em;
-    font-size: 1.2em;
-    font-weight: bold;
+.caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
-form{
+form {
   padding-left: 10px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--gray)
+  border-bottom: 1px solid var(--gray);
 }
 
-form input{
+form input {
   border: none;
   width: 100%;
   padding: 18px 0 18px 10px;
@@ -74,7 +70,7 @@ form input{
   font-style: italic;
 }
 
-.form-btn{
+.form-btn {
   background-color: white;
   border: none;
   font-size: 15px;
@@ -88,16 +84,16 @@ form input{
 .link-button {
   background-color: transparent;
   border: none;
-  outline:none;
+  outline: none;
   font-size: 18px;
   height: 20px;
-  opacity:0.5;
-  cursor:pointer;
-  
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .clear {
   padding: 15px 0 20px 0;
+
   /* background-color: #f6f6f6; */
   font-size: 20px;
   color: gray;
