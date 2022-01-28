@@ -1,7 +1,7 @@
-import { displayTasks } from "./Display";
+import displayTasks from './Display.js';
 
 const TasksUI = () => {
-  const tasks = document.querySelector(".List");
+  const tasks = document.querySelector('.List');
   tasks.innerHTML = displayTasks();
 };
 

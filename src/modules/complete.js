@@ -1,6 +1,6 @@
-import Storage from "./storage.js";
-import { displayTasks } from "./Display.js";
-import Tasks from "./tasksClass.js";
+import Storage from './storage.js';
+import displayTasks from './Display.js';
+import Tasks from './tasksClass.js';
 
 const Render = (listcontainer) => {
   const myDisplay = displayTasks();
@@ -20,4 +20,4 @@ const clearComplete = (listContainer) => {
   Render(listContainer);
 };
 
- export { markComplete, clearComplete };
+export { markComplete, clearComplete };

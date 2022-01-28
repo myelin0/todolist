@@ -1,5 +1,5 @@
-import Storage from "./storage";
-import { displayTasks } from "./Display";
+import Storage from './storage.js';
+import displayTasks from './Display.js';
 
 export default class Tasks {
   constructor(listContainer) {
@@ -21,7 +21,6 @@ export default class Tasks {
 
   static removeTask(taskID, clear = false) {
     let tasks = Storage.getData('tasks');
-    console.log(tasks)
     if (!clear) {
       tasks = tasks.filter((task) => task.id !== Number(taskID));
     } else {
@@ -30,12 +29,12 @@ export default class Tasks {
     Tasks.updateTaskItemID(tasks);
   }
 
-  static updateTaskItemID= (List)=>{
-      let i =0;
-      const {length}=List;
-      for (i;i<length;i++){
-          List[i].index = i+1;
-      }
-      Storage.storeData(List);
+  static updateTaskItemID= (List) => {
+    let i = 0;
+    const { length } = List;
+    for (i; i < length; i += 1) {
+      List[i].index = i + 1;
+    }
+    Storage.storeData(List);
   }
 }

@@ -1,6 +1,6 @@
-import { displayTasks } from "./Display.js";
-import Storage from "./storage.js";
-import Tasks from "./tasksClass.js";
+import displayTasks from './Display.js';
+import Storage from './storage.js';
+import Tasks from './tasksClass.js';
 
 export default class Methods {
   constructor(itemsToDelete = [], toogle = false, List) {
@@ -31,18 +31,18 @@ export default class Methods {
     }
 
     if (this.toogle) {
-      li.classList.add("markEdit");
+      li.classList.add('markEdit');
       taskDescription.contentEditable = true;
-      taskDescription.classList.add("setSpanBorders");
+      taskDescription.classList.add('setSpanBorders');
       taskDescription.focus();
-      elipsis.classList.add("trash");
-      deleteIcon.classList.remove("trash");
+      elipsis.classList.add('trash');
+      deleteIcon.classList.remove('trash');
     } else {
-      li.classList.remove("markEdit");
+      li.classList.remove('markEdit');
       taskDescription.contentEditable = false;
-      elipsis.classList.remove("trash");
-      deleteIcon.classList.add("trash");
-      taskDescription.classList.remove("setSpanBorders");
+      elipsis.classList.remove('trash');
+      deleteIcon.classList.add('trash');
+      taskDescription.classList.remove('setSpanBorders');
       this.updateEdittedDescription(taskDescription, id);
     }
 
@@ -51,7 +51,7 @@ export default class Methods {
   }
 
   addEventListenerForDelete(deleteIcon) {
-    deleteIcon.addEventListener("click", () => {
+    deleteIcon.addEventListener('click', () => {
       this.remove(this.itemsToDelete);
     });
   }
@@ -68,7 +68,7 @@ export default class Methods {
   updateEdittedDescription = (span, id) => {
     const List = Storage.getData();
     const text = span.textContent;
-    if (text !== "") {
+    if (text !== '') {
       List[id - 1].description = text;
       Storage.storeData(List);
     } else {
