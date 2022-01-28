@@ -9,6 +9,7 @@ const Render = (listcontainer) => {
 const markComplete = (checkbox, id, listContainer) => {
   const { checked } = checkbox;
   const toDoList = Storage.getData();
+
   toDoList[id - 1].completed = checked;
   Storage.storeData(toDoList);
   Render(listContainer);

@@ -6,7 +6,7 @@ import Methods from "./modules/methods.js";
 import { markComplete, clearComplete } from "./modules/complete.js";
 
 TasksUI();
-const listContainer = document.querySelector(".todo");
+const listContainer = document.querySelector(".List");
 const input = document.getElementById("newItem");
 console.log(input);
 const formBtn = document.querySelector(".form-btn");
@@ -53,5 +53,10 @@ clearCompletedItem.addEventListener('click', (e) => {
 
 formBtn.addEventListener('click', addTask);
 
+const refreshIcon=document.querySelector(".fa-sync");
+refreshIcon.addEventListener('click',()=>{
+  localStorage.clear();
+  location.reload();
+})
 
 document.body.appendChild(component());

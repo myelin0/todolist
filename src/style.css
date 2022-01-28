@@ -110,3 +110,24 @@ form input {
 .trash {
   display: none;
 }
+
+.List {
+  width: 100%;
+  max-height: 300px;
+  overflow-x: auto;
+  padding-inline-start: 5px;
+}
+
+.List li {
+  max-width: 90%;
+  border-bottom: 1px solid var(--gray);
+  padding: 15px 15px 15px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+input[type='checkbox'] {
+  margin-right: 15px;
+  transform: scale(1.3);
+}
