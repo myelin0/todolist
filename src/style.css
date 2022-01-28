@@ -101,3 +101,12 @@ form input {
   color: gray;
   text-align: center;
 }
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.trash {
+  display: none;
+}

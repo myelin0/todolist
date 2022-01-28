@@ -58,9 +58,9 @@ export default class Methods {
 
   remove = (itemsToDelete) => {
     itemsToDelete.forEach((item) => {
-      Todos.removeTodo(item);
+      Tasks.removeTask(item);
     });
-    const myDisplay = renderTodos();
+    const myDisplay = displayTasks();
     this.List.innerHTML = myDisplay;
     this.itemsToDelete.length = 0;
   };
@@ -74,7 +74,7 @@ export default class Methods {
     } else {
       span.textContent = List[id - 1].description;
     }
-    const myDisplay = renderTodos();
+    const myDisplay = displayTasks();
     this.List.innerHTML = myDisplay;
   };
 }

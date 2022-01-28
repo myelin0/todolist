@@ -1,3 +1,4 @@
+import _ from "lodash";
 import "./style.css";
 import TasksUI from "./modules/tasks-list.js";
 import Tasks from "./modules/tasksClass.js";
@@ -6,18 +7,24 @@ import { markComplete, clearComplete } from "./modules/complete.js";
 
 TasksUI();
 const listContainer = document.querySelector(".todo");
-const input = document.querySelector("#new-item");
-const formBtn= document.querySelector('.link-button');
+const input = document.getElementById("newItem");
+console.log(input);
+const formBtn = document.querySelector(".form-btn");
 const todoContainer = document.querySelector(".List");
-const clearCompletedItem = document.querySelector(".clear");
+const clearCompletedItem = document.querySelector(".link-button");
 
 const methods = new Methods([], false, todoContainer);
 const addList = new Tasks(todoContainer);
 
+function component() {
+  const element = document.createElement("div");
+  element.innerHTML = _;
+  return element;
+}
+
 const addTask = () => {
   if (input.value !== "") {
     addList.setTasks(input.value);
-    console.log(input.value)
     input.value = "";
     window.location.reload();
   }
@@ -32,17 +39,19 @@ listContainer.addEventListener("click", (e) => {
   } else if (e.target.tagName === "INPUT") {
     const checkbox = e.target;
     const { id } = e.target;
-    // markComplete(checkbox, id, listContainer);
+    markComplete(checkbox, id, listContainer);
   }
 });
 
-// clearCompletedItem.addEventListener("click", (e) => {
-//   if (!clearComplete(listContainer)) {
-//     e.preventDefault();
-//   } else {
-//     clearComplete(listContainer);
-//   }
-// });
+clearCompletedItem.addEventListener('click', (e) => {
+  if (!clearComplete(listContainer)) {
+    e.preventDefault();
+  } else {
+    clearComplete(listContainer);
+  }
+});
 
-formBtn.addEventListener("click", addTask);
-// window.onload = createList();
+formBtn.addEventListener('click', addTask);
+
+
+document.body.appendChild(component());

@@ -10,7 +10,6 @@ export default class Tasks {
     const tasks = Storage.getData();
     const id = tasks.length + 1;
     tasks.push({ description, completed, id });
-    console.log(tasks)
     Storage.storeData(tasks);
     Tasks.refreshPage(this.listContainer);
   };
@@ -21,7 +20,8 @@ export default class Tasks {
   };
 
   static removeTask(taskID, clear = false) {
-    let tasks = Storage.getData("tasks");
+    let tasks = Storage.getData('tasks');
+    console.log(tasks)
     if (!clear) {
       tasks = tasks.filter((task) => task.id !== Number(taskID));
     } else {
