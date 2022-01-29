@@ -1,32 +1,62 @@
+import _ from 'lodash';
 import './style.css';
+import TasksUI from './modules/tasks-list.js';
+import Tasks from './modules/tasksClass.js';
+import Methods from './modules/methods.js';
+import { markComplete, clearComplete } from './modules/complete.js';
 
-const toDoTasks = [
-  {
-    description: 'Make breakfast',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Drink Juice',
-    completed: true,
-    index: 1,
-  },
-  {
-    description: 'Go out',
-    completed: false,
-    index: 2,
-  },
-];
+TasksUI();
+const listContainer = document.querySelector('.List');
+const input = document.getElementById('newItem');
+const formBtn = document.querySelector('.form-btn');
+const todoContainer = document.querySelector('.List');
+const clearCompletedItem = document.querySelector('.link-button');
 
-const List = document.querySelector('.List');
+const methods = new Methods([], false, todoContainer);
+const addList = new Tasks(todoContainer);
 
-const createList = () => {
-  toDoTasks.forEach((task) => {
-    const element = document.createElement('li');
-    element.innerHTML = `<div class="left"><i class="far fa-square"></i> ${task.description} </div><i class="fa fa-ellipsis-v"></i>`;
-    element.classList.add('rows');
-    List.append(element);
-  });
+function component() {
+  const element = document.createElement('div');
+  element.innerHTML = _;
+  return element;
+}
+
+const addTask = () => {
+  if (input.value !== '') {
+    addList.setTasks(input.value);
+    input.value = '';
+    window.location.reload();
+  }
 };
 
-window.onload = createList();
+listContainer.addEventListener('click', (e) => {
+  const getItemTagName = e.target.tagName;
+  if (getItemTagName === 'LI') {
+    const li = e.target;
+    const { id } = e.target;
+    methods.markListForChange(li, id);
+  } else if (e.target.tagName === 'INPUT') {
+    const checkbox = e.target;
+    const { id } = e.target;
+    markComplete(checkbox, id, listContainer);
+  }
+});
+
+clearCompletedItem.addEventListener('click', (e) => {
+  if (!clearComplete(listContainer)) {
+    e.preventDefault();
+  } else {
+    clearComplete(listContainer);
+  }
+});
+
+formBtn.addEventListener('click', addTask);
+
+const refreshIcon = document.querySelector('.fa-sync');
+refreshIcon.addEventListener('click', () => {
+  localStorage.clear();
+  // eslint-disable-next-line no-restricted-globals
+  location.reload();
+});
+
+document.body.appendChild(component());

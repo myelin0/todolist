@@ -1,5 +1,7 @@
 body {
   background-color: bisque;
+  font-family: 'Open Sans', 'Lucida Grande', tahoma, verdana, arial, sans-serif;
+  font-size: 16px;
 }
 
 h1 {
@@ -98,4 +100,34 @@ form input {
   font-size: 20px;
   color: gray;
   text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.trash {
+  display: none;
+}
+
+.List {
+  width: 100%;
+  max-height: 300px;
+  overflow-x: auto;
+  padding-inline-start: 5px;
+}
+
+.List li {
+  max-width: 90%;
+  border-bottom: 1px solid var(--gray);
+  padding: 15px 15px 15px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+input[type='checkbox'] {
+  margin-right: 15px;
+  transform: scale(1.3);
 }
